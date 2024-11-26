@@ -1,8 +1,15 @@
 import { useEffect, useRef } from 'react';
-import vapor from '../images/NIKEVAPOR11.png'
+import fe from '../images/Fe.png'
 import VanillaTilt from 'vanilla-tilt';
 
-function FloatCard() {
+export interface ElementInfo {
+    number: number;
+    ab: string;
+    full_name: string;
+    molar: number;
+    class: string;
+}
+function FloatCard(props: {info: ElementInfo}) {
     const tilt = useRef(null);
     /* 
     {
@@ -21,10 +28,10 @@ function FloatCard() {
                                  // you need to add .js-tilt-glare>.js-tilt-glare-inner by yourself
   } */
     const options = {
+        scale: 1.2,
         speed: 1000,
         max: 50,
-        glare: 1.8
-  };
+    };
 
     useEffect(() => {
         VanillaTilt.init(tilt.current, options);
@@ -32,15 +39,17 @@ function FloatCard() {
 
     return (
         <>
-            <div ref={tilt} className="card blue" data-tilt>
+            <div ref={tilt} className={`card ${props.info.class}`} data-tilt>
                 <div className="product">
-                    <span className="number">01</span>
-                    <span className="sneakers">SNEAKER</span>
-                    <span className="price">$39.9</span>
-                    <img src={vapor} />
-                </div>
-                <div className="title">
-                    <h2>Vapor Pro 11</h2>
+                    <span className="show">
+                        <span className="number">{props.info.number}</span>
+                        <span className="ab">{props.info.ab}</span>
+                    </span>
+                    <span className="hide">
+                        <span className="full-name">{props.info.full_name}</span>
+                        <img src={fe} />
+                        <div className='molar'>{props.info.molar}</div>
+                    </span>
                 </div>
             </div>
         </>
