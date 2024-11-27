@@ -1,14 +1,7 @@
 import { useEffect, useRef } from 'react';
-import fe from '../images/Fe.png'
 import VanillaTilt from 'vanilla-tilt';
+import { ElementInfo } from '../utils/Typs';
 
-export interface ElementInfo {
-    number: number;
-    ab: string;
-    full_name: string;
-    molar: number;
-    class: string;
-}
 function FloatCard(props: {info: ElementInfo}) {
     const tilt = useRef(null);
     /* 
@@ -39,7 +32,7 @@ function FloatCard(props: {info: ElementInfo}) {
 
     return (
         <>
-            <div ref={tilt} className={`card ${props.info.class}`} data-tilt>
+            <div ref={tilt} className={`card ${props.info.color_class}`} data-tilt>
                 <div className="product">
                     <span className="show">
                         <span className="number">{props.info.number}</span>
@@ -47,7 +40,7 @@ function FloatCard(props: {info: ElementInfo}) {
                     </span>
                     <span className="hide">
                         <span className="full-name">{props.info.full_name}</span>
-                        <img src={fe} />
+                        <img src={props.info.img} />
                         <div className='molar'>{props.info.molar}</div>
                     </span>
                 </div>

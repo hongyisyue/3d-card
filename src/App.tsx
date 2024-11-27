@@ -1,6 +1,8 @@
 import './App.css'
 import './components/FloatCard.css'
-import FloatCard, { ElementInfo } from './components/FloatCard'
+import FloatCard from './components/FloatCard'
+import { ElementInfo } from './utils/Typs'
+import fe_img from './images/Fe.png'
 
 function App() {
 
@@ -9,7 +11,8 @@ function App() {
     ab: 'Fe',
     full_name: 'Iron',
     molar: 55.84,
-    class: 'pink'
+    color_class: 'pink',
+    img: fe_img
   }
 
   return (
