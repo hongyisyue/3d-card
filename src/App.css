@@ -12,3 +12,8 @@ body {
   flex-wrap: wrap;
   gap: 50px;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import VanillaTilt from 'vanilla-tilt';
-import { ElementInfo } from '../utils/Typs';
+import { AllItemInfo, ElementInfo, isChemElement } from '../utils/Typs';
 
-function FloatCard(props: {info: ElementInfo}) {
+function FloatCard(props: {info: AllItemInfo}) {
     const tilt = useRef(null);
     /* 
     {
@@ -30,23 +30,25 @@ function FloatCard(props: {info: ElementInfo}) {
         VanillaTilt.init(tilt.current, options);
     }, [options]);
 
-    return (
-        <>
-            <div ref={tilt} className={`card ${props.info.color_class}`} data-tilt>
-                <div className="product">
-                    <span className="show">
-                        <span className="number">{props.info.number}</span>
-                        <span className="ab">{props.info.ab}</span>
-                    </span>
-                    <span className="hide">
-                        <span className="full-name">{props.info.full_name}</span>
-                        <img src={props.info.img} />
-                        <div className='molar'>{props.info.molar}</div>
-                    </span>
+    if (isChemElement(props.info)) {
+        return (
+            <>
+                <div ref={tilt} className={`card ${props.info.color_class}`} data-tilt>
+                    <div className="product">
+                        <span className="show">
+                            <span className="number">{props.info.number}</span>
+                            <span className="ab">{props.info.ab}</span>
+                        </span>
+                        <span className="hide">
+                            <span className="full-name">{props.info.full_name}</span>
+                            <img src={props.info.img} />
+                            <div className='molar'>{props.info.molar}</div>
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </>
-    )
+            </>
+        )
+    }
 }
 
 export default FloatCard
