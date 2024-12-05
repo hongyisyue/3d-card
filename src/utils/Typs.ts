@@ -1,12 +1,16 @@
 export type AllItemInfo = ElementInfo | MerchantInfo;
 
-export type ElementInfo = {
+type BasicInfo = {
     number: number;
+    color_class: string;
+    img1: string;
+    img2?: string;
+    img3?: string;
+}
+export type ElementInfo = BasicInfo & {
     ab: string;
     full_name: string;
     molar: number;
-    color_class: string;
-    img: string;
 }
 export function isChemElement(info: AllItemInfo): info is ElementInfo {
     return (
@@ -16,13 +20,10 @@ export function isChemElement(info: AllItemInfo): info is ElementInfo {
     )
 }
 
-export type MerchantInfo = {
-    number: number;
+export type MerchantInfo = BasicInfo & {
     name: string;
     tags: string;
     price: number;
-    color_class: string;
-    img: string;
 }
 export function isMerchant(info: AllItemInfo): info is ElementInfo {
     return (
