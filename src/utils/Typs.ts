@@ -3,9 +3,7 @@ export type AllItemInfo = ElementInfo | MerchantInfo;
 type BasicInfo = {
     number: number;
     color_class: string;
-    img1: string;
-    img2?: string;
-    img3?: string;
+    imgs: string[];
 }
 export type ElementInfo = BasicInfo & {
     ab: string;

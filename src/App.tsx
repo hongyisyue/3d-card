@@ -7,6 +7,8 @@ import au_img from './images/gold.png'
 import ag_img from './images/silver.png'
 import cp_img from './images/copper.png'
 import al_img from './images/aluminium.png'
+import gold_1 from './images/gold_brick.png'
+import gold_2 from './images/gold_necklace.png'
 
 
 function App() {
@@ -17,7 +19,7 @@ function App() {
     full_name: 'Iron',
     molar: 55.84,
     color_class: 'pink',
-    img: fe_img
+    imgs: [fe_img],
   }
 
   const au: ElementInfo = {
@@ -26,7 +28,7 @@ function App() {
     full_name: 'Gold',
     molar: 196.97,
     color_class: 'pink',
-    img: au_img
+    imgs: [au_img, gold_1, gold_2],
   }
   const ag: ElementInfo = {
     number: 47,
@@ -34,7 +36,7 @@ function App() {
     full_name: 'Silver',
     molar: 107.87,
     color_class: 'pink',
-    img: ag_img
+    imgs: [ag_img],
   }
 
   const cp: ElementInfo = {
@@ -43,7 +45,7 @@ function App() {
     full_name: 'Copper',
     molar: 63.54,
     color_class: 'pink',
-    img: cp_img
+    imgs: [cp_img],
   }
 
   const al: ElementInfo = {
@@ -52,17 +54,16 @@ function App() {
     full_name: 'Aluminum',
     molar: 26.98,
     color_class: 'pink',
-    img: al_img
+    imgs: [al_img],
   }
   return (
     <>
-      <div className="row">
+      <div className="card-row">
         <FloatCard info={au}></FloatCard>
-        <FloatCard info={ag}></FloatCard>
-        <FloatCard info={cp}></FloatCard>
-        <FloatCard info={fe}></FloatCard>
-        <FloatCard info={al}></FloatCard>
-
+        {/* <FloatCard info={ag}></FloatCard>
+        <FloatCard info={cp}></FloatCard> */}
+        {/* <FloatCard info={fe}></FloatCard>
+        <FloatCard info={al}></FloatCard> */}
       </div>
     </>
   )

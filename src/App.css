@@ -13,7 +13,11 @@ body {
   gap: 50px;
 }
 
-.row {
+.card-row {
   display: flex;
   flex-direction: row;
+
+  > :not(:last-child) {
+    margin-right: 10px; /* Adjust the value as needed */
+  }
 }
